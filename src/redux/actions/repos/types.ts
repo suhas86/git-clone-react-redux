@@ -21,7 +21,7 @@ export interface FetchReposFailureAction {
   payload: string;
 }
 
-export type ReposActionTypes =
+export type RepoActions =
   | FetchReposRequestAction
   | FetchReposSuccessAction
   | FetchReposFailureAction;

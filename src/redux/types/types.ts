@@ -1,8 +1,8 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AppState } from '../reducers';
-import { UserActionTypes } from '../actions/users/types';
-import { ReposActionTypes } from '../actions/repos/types';
+import { UserActions } from '../actions/users/types';
+import { RepoActions } from '../actions/repos/types';
 
-export type AppActionTypes = UserActionTypes | ReposActionTypes;
+export type AppActionTypes = UserActions | RepoActions;
 
 export type AppDispatch = ThunkDispatch<AppState, unknown, AppActionTypes>;

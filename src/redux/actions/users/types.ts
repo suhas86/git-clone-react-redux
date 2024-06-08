@@ -39,16 +39,14 @@ export interface FetchUsersBySearchFailureAction {
   type: typeof UsersActionTypes.FETCH_USERS_BY_SEARCH_FAILURE;
   payload: string;
 }
-export type FetchTopUsersActionTypes =
+export type FetchTopUsersActions =
   | FetchTopUsersRequestAction
   | FetchTopUsersSuccessAction
   | FetchTopUsersFailureAction;
 
-export type FetchUsersBySearchActionTypes =
+export type FetchUsersBySearchActions =
   | FetchUsersBySearchRequestAction
   | FetchUsersBySearchSuccessAction
   | FetchUsersBySearchFailureAction;
 
-export type UserActionTypes =
-  | FetchTopUsersActionTypes
-  | FetchUsersBySearchActionTypes;
+export type UserActions = FetchTopUsersActions | FetchUsersBySearchActions;

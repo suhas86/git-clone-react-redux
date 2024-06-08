@@ -1,4 +1,4 @@
-import { RepoActionTypes, ReposActionTypes } from '../actions/repos/types';
+import { RepoActionTypes, RepoActions } from '../actions/repos/types';
 import { Repos } from '../types/repoTypes';
 
 interface ReposState {
@@ -15,7 +15,7 @@ const initialState: ReposState = {
 
 export const reposReducer = (
   state = initialState,
-  action: ReposActionTypes
+  action: RepoActions
 ): ReposState => {
   switch (action.type) {
     case RepoActionTypes.FETCH_REPOS_REQUEST:

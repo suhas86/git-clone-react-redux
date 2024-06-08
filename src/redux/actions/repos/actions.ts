@@ -6,7 +6,7 @@ import {
   FetchReposSuccessAction,
   FetchReposFailureAction,
   RepoActionTypes,
-  ReposActionTypes,
+  RepoActions,
 } from './types';
 import { fetchReposByUserName } from '../../services';
 
@@ -27,7 +27,7 @@ export const fetchReposFailure = (error: string): FetchReposFailureAction => ({
 
 // Thunk Functions
 export const getReposByUserName =
-  (userName: string): ThunkAction<void, RootState, unknown, ReposActionTypes> =>
+  (userName: string): ThunkAction<void, RootState, unknown, RepoActions> =>
   async (dispatch) => {
     dispatch(fetchReposRequest());
     try {

@@ -1,5 +1,5 @@
 import {
-  UserActionTypes,
+  UserActions,
   UsersActionTypes,
   FetchTopUsersSuccessAction,
   FetchTopUsersFailureAction,
@@ -20,7 +20,7 @@ const initialState: UsersState = {
 
 export const usersReducer = (
   state = initialState,
-  action: UserActionTypes
+  action: UserActions
 ): UsersState => {
   switch (action.type) {
     case UsersActionTypes.FETCH_TOP_USERS_REQUEST:

@@ -10,8 +10,8 @@ import {
   FetchUsersBySearchRequestAction,
   FetchUsersBySearchSuccessAction,
   FetchUsersBySearchFailureAction,
-  FetchTopUsersActionTypes,
-  FetchUsersBySearchActionTypes,
+  FetchTopUsersActions,
+  FetchUsersBySearchActions,
 } from './types';
 
 // Action Creators
@@ -55,7 +55,7 @@ export const fetchSearchUsersFailure = (
 export const getTopUsersBySize =
   (
     size: number = 30
-  ): ThunkAction<void, RootState, unknown, FetchTopUsersActionTypes> =>
+  ): ThunkAction<void, RootState, unknown, FetchTopUsersActions> =>
   async (dispatch) => {
     dispatch(fetchTopUsersRequest());
     try {
@@ -73,7 +73,7 @@ export const getTopUsersBySize =
 export const getUsersBySearch =
   (
     userName: string
-  ): ThunkAction<void, RootState, unknown, FetchUsersBySearchActionTypes> =>
+  ): ThunkAction<void, RootState, unknown, FetchUsersBySearchActions> =>
   async (dispatch) => {
     dispatch(fetchSearchUsersRequest());
     try {
