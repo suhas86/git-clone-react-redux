@@ -1,6 +1,6 @@
 import api from '../api';
 
-export const fetchTopUsersBySize = async (size: number = 10) => {
+export const fetchTopUsersBySize = async (size: number = 30) => {
   const response = await api.get(
     `/search/users?q=followers:>1000&sort=followers&order=desc&per_page=${size}`
   );

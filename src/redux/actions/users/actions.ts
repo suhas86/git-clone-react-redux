@@ -54,7 +54,7 @@ export const fetchSearchUsersFailure = (
 // Thunk Functions
 export const getTopUsersBySize =
   (
-    size: number = 10
+    size: number = 30
   ): ThunkAction<void, RootState, unknown, FetchTopUsersActionTypes> =>
   async (dispatch) => {
     dispatch(fetchTopUsersRequest());
