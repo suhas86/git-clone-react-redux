@@ -10,6 +10,7 @@ import {
 import { AppDispatch } from '../redux/types/types';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
+import { NavLink } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const { loading, users, error } = useSelector(
@@ -58,9 +59,17 @@ const Home: React.FC = () => {
                   alt={`${user.login} avatar`}
                   className="w-16 h-16 rounded-full"
                 />
-                <span className="text-lg text-blue-950 font-medium">
-                  {user.login}
-                </span>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-lg text-blue-950 font-medium">
+                    {user.login}
+                  </span>
+                  <NavLink
+                    className="underline underline-offset-2 text-orange-500 hover:text-orange-600"
+                    to={`/${user.login}/repos`}
+                  >
+                    View repos
+                  </NavLink>
+                </div>
               </li>
             ))}
           </ul>
