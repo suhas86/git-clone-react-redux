@@ -8,7 +8,7 @@ export const fetchTopUsersBySize = async (size: number = 10) => {
 };
 
 export const fetchUserBySearch = async (text: string) => {
-  const response = await api.get(`/search/user?q=${text}`);
+  const response = await api.get(`/search/users?q=${text}`);
   return response.data;
 };
 

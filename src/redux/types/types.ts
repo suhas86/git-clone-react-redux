@@ -1,5 +1,7 @@
-import { Dispatch } from 'redux';
-import { CounterActionTypes } from '../actions';
-import { UserActionTypes } from '../actions/userActions';
+import { ThunkDispatch } from 'redux-thunk';
+import { AppState } from '../reducers';
+import { UserActionTypes } from '../actions/users/types';
 
-export type AppDispatch = Dispatch<CounterActionTypes | UserActionTypes>;
+export type AppActionTypes = UserActionTypes;
+
+export type AppDispatch = ThunkDispatch<AppState, unknown, AppActionTypes>;

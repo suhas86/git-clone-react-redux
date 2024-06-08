@@ -1,9 +1,9 @@
 import {
-  UsersActionTypes,
   UserActionTypes,
+  UsersActionTypes,
   FetchTopUsersSuccessAction,
   FetchTopUsersFailureAction,
-} from '../actions/userActions';
+} from '../actions/users/types';
 import { Users } from '../types/usersTypes';
 
 interface UsersState {
@@ -24,12 +24,14 @@ export const usersReducer = (
 ): UsersState => {
   switch (action.type) {
     case UsersActionTypes.FETCH_TOP_USERS_REQUEST:
+    case UsersActionTypes.FETCH_USERS_BY_SEARCH_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
     case UsersActionTypes.FETCH_TOP_USERS_SUCCESS:
+    case UsersActionTypes.FETCH_USERS_BY_SEARCH_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -37,6 +39,7 @@ export const usersReducer = (
         error: null,
       };
     case UsersActionTypes.FETCH_TOP_USERS_FAILURE:
+    case UsersActionTypes.FETCH_USERS_BY_SEARCH_FAILURE:
       return {
         ...state,
         loading: false,

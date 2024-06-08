@@ -1,25 +1,18 @@
 import { useSelector } from 'react-redux';
 import { AppState } from './redux/reducers';
 import { useDispatch } from 'react-redux';
-import { increment, decrement } from './redux/actions';
 import { AppDispatch } from './redux/types/types';
 import { useEffect } from 'react';
-import { getTopUsersBySize } from './redux/actions/userActions';
+import { getTopUsersBySize } from './redux/actions/users/actions';
 
 function App() {
-  const count = useSelector((state: AppState) => state.counter.count);
+  const users = useSelector((state: AppState) => state.users.users);
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(getTopUsersBySize(10));
   }, [dispatch]);
 
-  return (
-    <div>
-      <h1>{count}</h1>
-      <button onClick={() => dispatch(increment())}>Increment</button>
-      <button onClick={() => dispatch(decrement())}>Decrement</button>
-    </div>
-  );
+  return <div>{users?.total_count}</div>;
 }
 
 export default App;
