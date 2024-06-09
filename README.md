@@ -1,5 +1,5 @@
 ---
-title: Sample GitHub User and Repository Viewer App
+TITLE: Sample GitHub User and Repository Viewer App
 ---
 
 # Sample GitHub User and Repository Viewer App
