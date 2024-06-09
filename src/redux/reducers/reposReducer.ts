@@ -3,7 +3,7 @@ import { Repos } from '../types/repoTypes';
 
 interface ReposState {
   loading: boolean;
-  repos: Repos | null;
+  repos: Repos[] | null;
   error: string | null;
 }
 
@@ -19,12 +19,14 @@ export const reposReducer = (
 ): ReposState => {
   switch (action.type) {
     case RepoActionTypes.FETCH_REPOS_REQUEST:
+    case RepoActionTypes.FETCH_REPOS_BY_SEARCH_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
     case RepoActionTypes.FETCH_REPOS_SUCCESS:
+    case RepoActionTypes.FETCH_REPOS_BY_SEARCH_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -32,6 +34,7 @@ export const reposReducer = (
         error: null,
       };
     case RepoActionTypes.FETCH_REPOS_FAILURE:
+    case RepoActionTypes.FETCH_REPOS_BY_SEARCH_FAILURE:
       return {
         ...state,
         loading: false,

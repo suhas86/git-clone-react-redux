@@ -19,7 +19,9 @@ export const fetchReposByUserName = async (userName: string) => {
   return response.data;
 };
 
-export const fetchRepoById = async (repositoryId: number) => {
-  const response = await api.get(`/repositories/${repositoryId}`);
+export const fetchRepoBySearch = async (userName: string, text: string) => {
+  const response = await api.get(
+    `/search/repositories?q=user:${userName}+${text}`
+  );
   return response.data;
 };
