@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+---
+title: Sample GitHub User and Repository Viewer App
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Sample GitHub User and Repository Viewer App
 
-Currently, two official plugins are available:
+This application showcases how to use Redux without Redux Toolkit with React and TypeScript. The app allows users to load the top GitHub user, search for users, and view repositories created by these users. This documentation provides an overview of the app, its features, and the tech stack used.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
+- **React Router**: A library for routing in React applications.
+- **Redux**: A predictable state container for JavaScript apps.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+1. **Initial Load**: The app initially loads and displays the top GitHub user.
+2. **User Search**: Users can search for GitHub users by username.
+3. **View Repositories**: Users can view repositories created by searched users.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To run the app locally, follow these steps:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/suhas86/git-clone-react-redux.git
+   git checkout feature/old-redux
+   cd git-clone-react-redux
+   ```
+
+2. **Install dependencies**:
+
+   ```
+   npm install
+   ```
+
+3. **Run the app**:
+
+   ```
+   npm run dev
+   ```
