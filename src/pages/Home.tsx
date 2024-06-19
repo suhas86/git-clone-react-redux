@@ -1,22 +1,17 @@
 import React, { useEffect } from 'react';
 import SearchBox from '../components/SearchBox';
-import { useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
-import { useDispatch } from 'react-redux';
 import {
   getTopUsersBySize,
   getUsersBySearch,
 } from '../redux/actions/users/actions';
-import { AppDispatch } from '../redux/types/types';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import { NavLink } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 
 const Home: React.FC = () => {
-  const { loading, users, error } = useSelector(
-    (state: AppState) => state.users
-  );
-  const dispatch = useDispatch<AppDispatch>();
+  const { loading, users, error } = useAppSelector((state) => state.users);
+  const dispatch = useAppDispatch();
   const handleSearch = (query: string) => {
     if (query) {
       dispatch(getUsersBySearch(query));

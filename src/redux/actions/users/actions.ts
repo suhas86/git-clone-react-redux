@@ -1,7 +1,7 @@
 import { Users } from '../../types/usersTypes';
 import { fetchTopUsersBySize, fetchUserBySearch } from '../../services';
 import { ThunkAction } from 'redux-thunk';
-import { RootState } from '../../store';
+import { ApplicationState } from '../../store';
 import {
   FetchTopUsersRequestAction,
   UsersActionTypes,
@@ -55,7 +55,7 @@ export const fetchSearchUsersFailure = (
 export const getTopUsersBySize =
   (
     size: number = 30
-  ): ThunkAction<void, RootState, unknown, FetchTopUsersActions> =>
+  ): ThunkAction<void, ApplicationState, unknown, FetchTopUsersActions> =>
   async (dispatch) => {
     dispatch(fetchTopUsersRequest());
     try {
@@ -73,7 +73,7 @@ export const getTopUsersBySize =
 export const getUsersBySearch =
   (
     userName: string
-  ): ThunkAction<void, RootState, unknown, FetchUsersBySearchActions> =>
+  ): ThunkAction<void, ApplicationState, unknown, FetchUsersBySearchActions> =>
   async (dispatch) => {
     dispatch(fetchSearchUsersRequest());
     try {

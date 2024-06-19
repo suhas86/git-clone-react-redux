@@ -3,9 +3,9 @@ import {
   compose,
   legacy_createStore as createStore,
 } from 'redux';
-import { thunk } from 'redux-thunk';
+import thunk, { ThunkDispatch } from 'redux-thunk';
 import rootReducer from '../reducers';
-import { AppDispatch } from '../types/types';
+import { AppActionTypes } from '../types/types';
 import loggingMiddleware from '../middlewares/logging';
 
 declare global {
@@ -13,11 +13,6 @@ declare global {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
-
-// RootState: This type represents the complete state of your Redux store.
-// StoreDispatch: This type represents the dispatch function used to dispatch actions to the Redux store.
-export type RootState = ReturnType<typeof rootReducer>;
-export type StoreDispatch = AppDispatch;
 
 // Define middleware array
 const middleware = [thunk, loggingMiddleware];
@@ -32,3 +27,10 @@ export const store = createStore(
   undefined,
   composeEnhancers(applyMiddleware(...middleware))
 );
+
+export type ApplicationState = ReturnType<typeof store.getState>;
+export type ApplicationDispatch = ThunkDispatch<
+  ApplicationState,
+  unknown,
+  AppActionTypes
+>;

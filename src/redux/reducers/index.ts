@@ -8,5 +8,5 @@ const rootReducer = combineReducers({
   repos: reposReducer,
 });
 
-export type AppState = ReturnType<typeof rootReducer>;
+// export type AppState = ReturnType<typeof rootReducer>;
 export default rootReducer;

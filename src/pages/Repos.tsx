@@ -1,24 +1,19 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppDispatch } from '../redux/types/types';
 import {
   getReposBySearch,
   getReposByUserName,
 } from '../redux/actions/repos/actions';
-import { useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import SearchBox from '../components/SearchBox';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 
 const Repos: React.FC = () => {
   const { userName } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch<AppDispatch>();
-  const { repos, error, loading } = useSelector(
-    (state: AppState) => state.repos
-  );
+  const dispatch = useAppDispatch();
+  const { repos, error, loading } = useAppSelector((state) => state.repos);
   useEffect(() => {
     if (userName) {
       dispatch(getReposByUserName(userName));

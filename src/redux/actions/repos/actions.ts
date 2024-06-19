@@ -1,5 +1,5 @@
 import { ThunkAction } from 'redux-thunk';
-import { RootState } from '../../store';
+import { ApplicationState } from '../../store';
 import { Repos } from '../../types/repoTypes';
 import {
   FetchReposRequestAction,
@@ -52,7 +52,7 @@ export const fetchReposBySearchFailure = (
 export const getReposByUserName =
   (
     userName: string
-  ): ThunkAction<void, RootState, unknown, FetchReposActions> =>
+  ): ThunkAction<void, ApplicationState, unknown, FetchReposActions> =>
   async (dispatch) => {
     dispatch(fetchReposRequest());
     try {
@@ -71,7 +71,7 @@ export const getReposBySearch =
   (
     userName: string,
     text: string
-  ): ThunkAction<void, RootState, unknown, FetchReposSearchActions> =>
+  ): ThunkAction<void, ApplicationState, unknown, FetchReposSearchActions> =>
   async (dispatch) => {
     dispatch(fetchReposBySearchRequest());
     try {

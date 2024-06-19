@@ -1,7 +1,7 @@
 import { Middleware } from 'redux';
-import { RootState } from '../store';
+import { ApplicationState } from '../store';
 
-const loggingMiddleware: Middleware<object, RootState> =
+const loggingMiddleware: Middleware<object, ApplicationState> =
   (store) => (next) => (action) => {
     // Log the action
     console.log('Action:', action);
