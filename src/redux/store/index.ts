@@ -3,7 +3,7 @@ import {
   compose,
   legacy_createStore as createStore,
 } from 'redux';
-import thunk, { ThunkDispatch } from 'redux-thunk';
+import { thunk, ThunkDispatch } from 'redux-thunk';
 import rootReducer from '../reducers';
 import { AppActionTypes } from '../types/types';
 import loggingMiddleware from '../middlewares/logging';
@@ -28,7 +28,7 @@ export const store = createStore(
   composeEnhancers(applyMiddleware(...middleware))
 );
 
-export type ApplicationState = ReturnType<typeof store.getState>;
+export type ApplicationState = ReturnType<typeof rootReducer>;
 export type ApplicationDispatch = ThunkDispatch<
   ApplicationState,
   unknown,
