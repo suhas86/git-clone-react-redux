@@ -24,6 +24,7 @@ export type User = {
   type: Type;
   site_admin: boolean;
   score: number;
+  isLiked?: boolean;
 };
 
 export enum Type {

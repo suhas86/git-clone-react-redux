@@ -10,6 +10,9 @@ export enum UsersActionTypes {
   FETCH_USERS_BY_SEARCH_REQUEST = 'FETCH_USERS_BY_SEARCH_REQUEST',
   FETCH_USERS_BY_SEARCH_SUCCESS = 'FETCH_USERS_BY_SEARCH_SUCCESS',
   FETCH_USERS_BY_SEARCH_FAILURE = 'FETCH_USERS_BY_SEARCH_FAILURE',
+
+  /** Toggle user like option */
+  TOGGLE_USER_LIKE = 'TOGGLE_USER_LIKE',
 }
 
 export interface FetchTopUsersRequestAction {
@@ -39,6 +42,12 @@ export interface FetchUsersBySearchFailureAction {
   type: typeof UsersActionTypes.FETCH_USERS_BY_SEARCH_FAILURE;
   payload: string;
 }
+
+export interface ToggleUserLikeAction {
+  type: typeof UsersActionTypes.TOGGLE_USER_LIKE;
+  payload: number;
+}
+
 export type FetchTopUsersActions =
   | FetchTopUsersRequestAction
   | FetchTopUsersSuccessAction
@@ -49,4 +58,7 @@ export type FetchUsersBySearchActions =
   | FetchUsersBySearchSuccessAction
   | FetchUsersBySearchFailureAction;
 
-export type UserActions = FetchTopUsersActions | FetchUsersBySearchActions;
+export type UserActions =
+  | FetchTopUsersActions
+  | FetchUsersBySearchActions
+  | ToggleUserLikeAction;

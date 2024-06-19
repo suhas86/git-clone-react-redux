@@ -3,6 +3,7 @@ import {
   UsersActionTypes,
   FetchTopUsersSuccessAction,
   FetchTopUsersFailureAction,
+  ToggleUserLikeAction,
 } from '../actions/users/types';
 import { Users } from '../types/usersTypes';
 
@@ -45,6 +46,29 @@ export const usersReducer = (
         loading: false,
         error: (action as FetchTopUsersFailureAction).payload,
       };
+
+    case UsersActionTypes.TOGGLE_USER_LIKE: {
+      const userId = (action as ToggleUserLikeAction).payload;
+      if (!state.users) {
+        return state; // Return state as is if users data is null
+      }
+      const updatedUsers = state.users.items.map((user) => {
+        if (user.id === userId) {
+          return {
+            ...user,
+            isLiked: !user.isLiked, // Toggle the liked property
+          };
+        }
+        return user;
+      });
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          items: updatedUsers,
+        },
+      };
+    }
     default:
       return state;
   }

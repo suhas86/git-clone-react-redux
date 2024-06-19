@@ -3,11 +3,13 @@ import SearchBox from '../components/SearchBox';
 import {
   getTopUsersBySize,
   getUsersBySearch,
+  toogleUserLike,
 } from '../redux/actions/users/actions';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
+import LikeButton from '../components/LikeButton';
 
 const Home: React.FC = () => {
   const { loading, users, error } = useAppSelector((state) => state.users);
@@ -58,12 +60,20 @@ const Home: React.FC = () => {
                   <span className="text-lg text-blue-950 font-medium">
                     {user.login}
                   </span>
-                  <NavLink
-                    className="underline underline-offset-2 text-orange-500 hover:text-orange-600"
-                    to={`/${user.login}/repos`}
-                  >
-                    View repos
-                  </NavLink>
+                  <div className="flex gap-2">
+                    <NavLink
+                      className="underline underline-offset-2 text-orange-500 hover:text-orange-600"
+                      to={`/${user.login}/repos`}
+                    >
+                      View repos
+                    </NavLink>
+                    <div>
+                      <LikeButton
+                        liked={!!user.isLiked}
+                        toggleLike={() => dispatch(toogleUserLike(user.id))}
+                      />
+                    </div>
+                  </div>
                 </div>
               </li>
             ))}

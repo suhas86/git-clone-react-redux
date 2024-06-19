@@ -12,6 +12,7 @@ import {
   FetchUsersBySearchFailureAction,
   FetchTopUsersActions,
   FetchUsersBySearchActions,
+  ToggleUserLikeAction,
 } from './types';
 
 // Action Creators
@@ -49,6 +50,11 @@ export const fetchSearchUsersFailure = (
 ): FetchUsersBySearchFailureAction => ({
   type: UsersActionTypes.FETCH_USERS_BY_SEARCH_FAILURE,
   payload: error,
+});
+
+export const toogleUserLike = (userId: number): ToggleUserLikeAction => ({
+  type: UsersActionTypes.TOGGLE_USER_LIKE,
+  payload: userId,
 });
 
 // Thunk Functions
