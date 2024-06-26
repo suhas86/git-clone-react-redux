@@ -1,3 +1,4 @@
+import { Action } from 'redux';
 import { Repos } from '../../types/repoTypes';
 
 export enum RepoActionTypes {
@@ -50,4 +51,6 @@ export type FetchReposSearchActions =
   | FetchReposBySearchSuccessAction
   | FetchReposBySearchFailureAction;
 
-export type RepoActions = FetchReposActions | FetchReposSearchActions;
+type UnknownAction = Action<string>;
+
+export type RepoActions = FetchReposActions | FetchReposSearchActions | UnknownAction;

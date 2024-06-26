@@ -1,10 +1,6 @@
-
-
 import { configureStore } from "@reduxjs/toolkit";
 import { usersReducer } from "../reducers/userReducer";
 import { reposReducer } from "../reducers/reposReducer";
-
-
 
 export const store = configureStore({
     reducer: {
@@ -13,3 +9,5 @@ export const store = configureStore({
     }
 })
 
+export type ApplicationState = ReturnType<typeof store.getState>;
+export type ApplicationDispatch = typeof store.dispatch;

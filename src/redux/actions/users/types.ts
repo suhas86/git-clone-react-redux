@@ -1,3 +1,4 @@
+import { Action } from 'redux';
 import { Users } from '../../types/usersTypes';
 
 export enum UsersActionTypes {
@@ -58,7 +59,9 @@ export type FetchUsersBySearchActions =
   | FetchUsersBySearchSuccessAction
   | FetchUsersBySearchFailureAction;
 
+type UnknownAction = Action<string>;
+
 export type UserActions =
   | FetchTopUsersActions
   | FetchUsersBySearchActions
-  | ToggleUserLikeAction;
+  | ToggleUserLikeAction | UnknownAction;
