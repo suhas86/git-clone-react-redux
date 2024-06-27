@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  getReposBySearch,
-  getReposByUserName,
-} from '../redux/actions/repos/actions';
+
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import SearchBox from '../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
+import {
+  getReposBySearch,
+  getReposByUserName,
+} from '../redux/features/repoSlice';
 
 const Repos: React.FC = () => {
   const { userName } = useParams();
@@ -22,7 +23,7 @@ const Repos: React.FC = () => {
   const handleSearch = (query: string) => {
     if (!userName) return;
     if (query) {
-      dispatch(getReposBySearch(userName, query));
+      dispatch(getReposBySearch({ userName, text: query }));
     } else {
       dispatch(getReposByUserName(userName));
     }
