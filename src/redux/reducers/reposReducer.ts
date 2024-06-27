@@ -1,4 +1,4 @@
-import { RepoActionTypes, RepoActions } from '../actions/repos/types';
+import { FetchReposFailureAction, FetchReposSuccessAction, RepoActionTypes, RepoActions } from '../actions/repos/types';
 import { Repos } from '../types/repoTypes';
 
 interface ReposState {
@@ -30,7 +30,7 @@ export const reposReducer = (
       return {
         ...state,
         loading: false,
-        repos: action.payload,
+        repos: (action as FetchReposSuccessAction).payload,
         error: null,
       };
     case RepoActionTypes.FETCH_REPOS_FAILURE:
@@ -39,7 +39,7 @@ export const reposReducer = (
         ...state,
         loading: false,
         repos: null,
-        error: action.payload,
+        error: (action as FetchReposFailureAction).payload,
       };
     default:
       return state;
