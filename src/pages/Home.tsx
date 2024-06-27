@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import SearchBox from '../components/SearchBox';
-import {
-  getTopUsersBySize,
-  getUsersBySearch,
-  toogleUserLike,
-} from '../redux/actions/users/actions';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import LikeButton from '../components/LikeButton';
+import {
+  getTopUsersBySize,
+  getUsersBySearch,
+  toogleUserLike,
+} from '../redux/features/userSlice';
 
 const Home: React.FC = () => {
   const { loading, users, error } = useAppSelector((state) => state.users);
@@ -18,11 +18,11 @@ const Home: React.FC = () => {
     if (query) {
       dispatch(getUsersBySearch(query));
     } else {
-      dispatch(getTopUsersBySize());
+      dispatch(getTopUsersBySize(30));
     }
   };
   useEffect(() => {
-    dispatch(getTopUsersBySize());
+    dispatch(getTopUsersBySize(30));
   }, [dispatch]);
 
   return (
